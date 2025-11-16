@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------- */
+/* WEB3MODAL BUTON ÖZELLEŞTİRMELERİ (NİHAİ GÖRÜNÜRLÜK VE TASARIM GARANTİSİ) */
+/* ------------------------------------------------------------------- */
+
+w3m-button {
+  /* *** KRİTİK GÖRÜNÜRLÜK KURALLARI *** */
+  display: flex !important;
+  min-width: 180px !important; 
+  height: 48px !important; 
+  color: white !important; 
+  
+  /* Web3Modal'ın kendi bileşen içi renklerini eziyoruz */
+  --w3m-color-main: transparent;
+  --w3m-button-border-radius: 9999px !important; /* rounded-full */
+  --w3m-font-size-master: 1rem;
+  --w3m-font-weight-master: 600; /* font-semibold */
+  --w3m-font-family: inherit;
+  
+  /* Tailwind sınıflarının karşılığı olan gradient ve gölgeyi uyguluyoruz */
+  /* NOT: Bu stiller, w3m-button'ın üzerindeki class="web3-connect-button" tarafından tetiklenir */
+  background: linear-gradient(to right, #34d399, #3b82f6) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important; 
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Stilleri */
+w3m-button:hover {
+  background: linear-gradient(to right, #059669, #2563eb) !important;
+  transform: scale(1.05); 
+}
+
+/* Mobil Buton Stilleri */
+/* Mobile menüde gösterilen butonun tam genişlik almasını sağlar */
+w3m-button[class*="web3-connect-button-mobile"] {
+  /* Sadece mobil menüdeki butonu hedefliyoruz */
+  width: 100% !important; 
+  margin-top: 1rem !important;
+}
+
+/* Eğer butonun içindeki metin bileşeni de stil kaybediyorsa (nadiren olur) */
+w3m-button::part(base) {
+  /* Bu, butonun içindeki gerçek <button> elementini hedeflememizi sağlar */
+  color: white !important;
+}
